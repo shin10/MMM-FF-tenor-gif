@@ -1,0 +1,22 @@
+/* Magic Mirror
+ * Module: MMM-FF-tenor-gif
+ *
+ * By Michael Trenkler
+ * ISC Licensed.
+ */
+.MMM-FF-tenor-gif .error {
+  color: #f00;
+}
+
+.MMM-FF-tenor-gif .gif-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MMM-FF-tenor-gif .gif {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
