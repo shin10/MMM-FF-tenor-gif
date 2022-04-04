@@ -28,8 +28,8 @@ git clone https://github.com/shin10/MMM-FF-tenor-gif.git
   module: "MMM-FF-tenor-gif",
   position: "bottom",
   hiddenOnStartup: true,
+  header: "Tenor",
   config:{
-    header: "Tenor",
     baseURL: "https://g.tenor.com/v1/random",
     searchParams: {
       key: "$TENOR_API_KEY",
@@ -52,18 +52,18 @@ git clone https://github.com/shin10/MMM-FF-tenor-gif.git
 
 ### Configuration Options
 
-| **Option**           | **Type**         | **Default**                       | **Description**                                                                              |
-| -------------------- | ---------------- | --------------------------------- | -------------------------------------------------------------------------------------------- |
-| `header`             | `string`         | `"Tenor"`                         | The header text.                                                                             |
-| `baseURL`            | `string`         | `"https://g.tenor.com/v1/random"` | The API endpoint.                                                                            |
-| `searchParams`       | `object`         | (See below)                       | URLSearchParam object, containing the API key, etc.                                          |
-| `updateInterval`     | `int`            | `3600000` (1 hour)                | The duration of the update interval in ms or `null`.                                         |
-| `updateOnSuspension` | `bool`           | `null`                            | When to update the image. `null`, `false` or `true`. Further explanations below.             |
-| `imageMaxWidth`      | `string`         | `null`                            | Maximum _width_ of the comic strip in any valid _css unit_ like `px`, `%`, `vw`, `vmin` ...  |
-| `imageMaxHeight`     | `string`         | `null`                            | Maximum _height_ of the comic strip in any valid _css unit_ like `px`, `%`, `vh`, `vmin` ... |
-| `animationSpeed`     | `string`         | `1000`                            | The duration of the page transition.                                                         |
-| `events`             | `object`         |                                   | A filter and list of _event constants_ to remap if necessary.                                |
-| `events.sender`      | `string`/`array` | `undefined`                       | Filter events to those dispatched by given _module ids_.                                     |
+| **Option**           | **Type**         | **Default**                       | **Description**                                                                                |
+| -------------------- | ---------------- | --------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `header`             | `string`         | `"Tenor"`                         | The header text, `false` to display nothing or `null` to show the description of the gif only. |
+| `baseURL`            | `string`         | `"https://g.tenor.com/v1/random"` | The API endpoint.                                                                              |
+| `searchParams`       | `object`         | (See below)                       | URLSearchParam object, containing the API key, etc.                                            |
+| `updateInterval`     | `int`            | `3600000` (1 hour)                | The duration of the update interval in ms or `null`.                                           |
+| `updateOnSuspension` | `bool`           | `null`                            | When to update the image. `null`, `false` or `true`. Further explanations below.               |
+| `imageMaxWidth`      | `string`         | `null`                            | Maximum _width_ of the comic strip in any valid _css unit_ like `px`, `%`, `vw`, `vmin` ...    |
+| `imageMaxHeight`     | `string`         | `null`                            | Maximum _height_ of the comic strip in any valid _css unit_ like `px`, `%`, `vh`, `vmin` ...   |
+| `animationSpeed`     | `string`         | `1000`                            | The duration of the page transition.                                                           |
+| `events`             | `object`         |                                   | A filter and list of _event constants_ to remap if necessary.                                  |
+| `events.sender`      | `string`/`array` | `undefined`                       | Filter events to those dispatched by given _module ids_.                                       |
 
 #### searchParams
 

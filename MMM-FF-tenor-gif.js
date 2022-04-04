@@ -7,7 +7,6 @@
 
 Module.register("MMM-FF-tenor-gif", {
   defaults: {
-    header: "Tenor",
     baseURL: "https://g.tenor.com/v1/random",
     searchParams: {
       key: "$TENOR_API_KEY",
@@ -45,7 +44,10 @@ Module.register("MMM-FF-tenor-gif", {
   },
 
   getHeader: function () {
-    const title = [this.config.header];
+    const title = [];
+    if (this.data.header === false) return null;
+    else if (this.data.header === undefined) title.push("Tenor");
+    else if (this.data.header !== null) title.push(this.data.header);
     const gif = this.gifData?.results?.[0];
     if (gif?.content_description) title.push(gif.content_description);
     return title.join(" - ");
