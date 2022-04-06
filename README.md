@@ -44,7 +44,8 @@ git clone https://github.com/shin10/MMM-FF-tenor-gif.git
     imageMaxHeight: null,
     animationSpeed: 1000,
     events: {
-      GIF_RANDOM: "ARTICLE_RANDOM"
+      GIF_RANDOM: "GIF_RANDOM",
+      ARTICLE_RANDOM: "GIF_RANDOM"
     }
   },
 }

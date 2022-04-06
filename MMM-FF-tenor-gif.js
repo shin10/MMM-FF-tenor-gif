@@ -128,18 +128,20 @@ Module.register("MMM-FF-tenor-gif", {
   notificationReceived: function (notification, payload, sender) {
     if (!this.isAcceptableSender(sender)) return;
 
-    switch (notification) {
-      case this.config.events.GIF_RANDOM:
-        if (!this.hidden) {
-          this.showLoader();
-          this.sendSocketNotification("GET_RANDOM_GIF", {
-            config: this.config
-          });
-        }
-        break;
-      default:
-        break;
-    }
+    this.config.events[notification]?.split(" ").each((e) => {
+      switch (e) {
+        case "GIF_RANDOM":
+          if (!this.hidden) {
+            this.showLoader();
+            this.sendSocketNotification("GET_RANDOM_GIF", {
+              config: this.config
+            });
+          }
+          break;
+        default:
+          break;
+      }
+    });
   },
 
   suspend: function () {
