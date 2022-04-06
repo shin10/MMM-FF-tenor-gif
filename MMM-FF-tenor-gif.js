@@ -32,7 +32,7 @@ Module.register("MMM-FF-tenor-gif", {
 
   start: function () {
     Log.info("Starting module: " + this.name);
-    this.sendSocketNotification("RANDOM_GIF", { config: this.config });
+    this.getRandomGif();
   },
 
   getScripts: function () {
@@ -91,6 +91,7 @@ Module.register("MMM-FF-tenor-gif", {
   socketNotificationReceived: function (notification, payload) {
     if (!payload.config || payload.config.moduleId !== this.config.moduleId)
       return;
+    console.log("######################GIF", notification, payload);
     switch (notification) {
       case "ERROR":
         this.error = payload;
@@ -99,7 +100,6 @@ Module.register("MMM-FF-tenor-gif", {
       case "UPDATE_GIF":
         this.error = null;
         this.gifData = payload.config.gif;
-        this.config.gif = this.gifData;
         this.updateDom(this.config.animationSpeed);
         break;
       default:
@@ -110,6 +110,10 @@ Module.register("MMM-FF-tenor-gif", {
   showLoader: function () {
     this.init();
     this.updateDom(this.config.animationSpeed);
+  },
+
+  getRandomGif: function () {
+    this.sendSocketNotification("RANDOM_GIF", { config: this.config });
   },
 
   isAcceptableSender(sender) {
@@ -133,9 +137,7 @@ Module.register("MMM-FF-tenor-gif", {
         case "GIF_RANDOM":
           if (!this.hidden) {
             this.showLoader();
-            this.sendSocketNotification("GET_RANDOM_GIF", {
-              config: this.config
-            });
+            this.getRandomGif();
           }
           break;
         default:
