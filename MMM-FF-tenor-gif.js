@@ -128,7 +128,7 @@ Module.register("MMM-FF-tenor-gif", {
   notificationReceived: function (notification, payload, sender) {
     if (!this.isAcceptableSender(sender)) return;
 
-    this.config.events[notification]?.split(" ").each((e) => {
+    this.config.events[notification]?.split(" ").forEach((e) => {
       switch (e) {
         case "GIF_RANDOM":
           if (!this.hidden) {
