@@ -85,7 +85,11 @@ const GifFetcher = function (nodeHelper, config) {
 
   this.getRandomGif = () => {
     const myURL = new URL(baseURL);
-    const search = new URLSearchParams(searchParams).toString();
+    const params = JSON.parse(JSON.stringify(searchParams));
+    if (Array.isArray(params.q)) {
+      params.q = params.q[~~(Math.random() * params.q.length)];
+    }
+    const search = new URLSearchParams(params).toString();
     myURL.search = search;
 
     const request = https
