@@ -92,7 +92,7 @@ Module.register("MMM-FF-tenor-gif", {
   socketNotificationReceived: function (notification, payload) {
     if (!payload.config || payload.config.moduleId !== this.config.moduleId)
       return;
-    console.log("######################GIF", notification, payload);
+
     switch (notification) {
       case "ERROR":
         this.error = payload;
