@@ -75,6 +75,7 @@ Module.register("MMM-FF-tenor-gif", {
     var img = document.createElement("img");
     img.classList.add("gif");
     const gif = this.gifData.results[0];
+    if (!gif) return wrapper;
 
     img.src = gif.media[0].gif.url;
     img.alt = gif.content_description;
