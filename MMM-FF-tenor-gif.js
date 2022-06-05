@@ -118,7 +118,7 @@ Module.register("MMM-FF-tenor-gif", {
   },
 
   isAcceptableSender(sender) {
-    if (!sender) return true;
+    if (!sender) return false;
     const acceptableSender = this.config.events.sender;
     return (
       !acceptableSender ||
